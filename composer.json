@@ -1,0 +1,72 @@
+{
+    "name": "jeffersongoncalves/laravel-ccpa-minors",
+    "description": "CCPA/CPRA minors for Laravel (§1798.120(c)): no sale or sharing of personal information of consumers under 16 without opt-in, given by the consumer from 13 and by a parent under 13; age checks as results only.",
+    "keywords": [
+        "laravel",
+        "ccpa",
+        "cpra",
+        "minors",
+        "children",
+        "opt-in",
+        "age-verification",
+        "privacy"
+    ],
+    "homepage": "https://github.com/jeffersongoncalves/laravel-ccpa-minors",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jefferson Simão Gonçalves",
+            "email": "gerson.simao.92@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "spatie/laravel-package-tools": "^1.16",
+        "illuminate/contracts": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.24",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JeffersonGoncalves\\CcpaMinors\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JeffersonGoncalves\\CcpaMinors\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JeffersonGoncalves\\CcpaMinors\\CcpaMinorsServiceProvider"
+            ],
+            "aliases": {
+                "CcpaMinors": "JeffersonGoncalves\\CcpaMinors\\Facades\\CcpaMinors"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
